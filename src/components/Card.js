@@ -22,7 +22,7 @@ const Card = props => {
             {props.title.length > 22 ? props.title.slice(0, 22) + '...' 
             : props.title}
           </Text>
-          <MaterialIcons name='favorite' color='#72bcd4' size={24} />
+          <MaterialIcons name='favorite-outline' color='#72bcd4' size={24} />
         </View>
         <View style={styles.descriptionWrapper}>
           <Text style={styles.description}>
