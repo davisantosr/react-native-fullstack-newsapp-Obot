@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading'
-
+import { Provider } from 'react-redux'
 
 import * as Font from 'expo-font';
 
@@ -29,7 +29,9 @@ export default function App() {
   }
   
   return (
-    <AppNavigator/>
+    <Provider store={store}>
+      <AppNavigator/>
+    </Provider>
   );
 }
 
