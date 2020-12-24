@@ -14,12 +14,12 @@ const NewsAppScreen = props => {
 
   }, [dispatch])
 
-  const articles = useSelector(state => state.news.articles)
+  const {articles} = useSelector(state => state.news.articles)
   console.log(articles)
 
   return (
     <FlatList 
-      data={articles.articles}
+      data={articles}
       keyExtractor={item => item.url}
       renderItem={({item}) => (
         <Card navigation={props.navigation}/>
