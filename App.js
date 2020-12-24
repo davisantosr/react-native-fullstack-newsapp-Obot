@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading'
 
+
 import * as Font from 'expo-font';
 
 import AppNavigator from './src/navigation/AppNavigator'
+import store from './src/redux/store'
 
 const loadFonts = async () => {
   return Font.loadAsync({
