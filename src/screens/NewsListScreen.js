@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -14,6 +13,9 @@ const NewsAppScreen = props => {
     dispatch(newsActions.fetchArticles())
 
   }, [dispatch])
+
+  const articles = useSelector(state => state.news.articles)
+  console.log(articles)
 
   return (
       <Card navigation={props.navigation}/>
