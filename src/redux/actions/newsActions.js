@@ -3,8 +3,19 @@ export const ADD_FAVORITES = 'ADD_FAVORITES';
 
 
 export const fetchArticles = () => {
-  return {
-    type: FETCH_ARTICLES,
-    payload: {id: 1, title: 'Sport news', description: 'Sports news in on'}
+
+  return async dispatch => {
+    //logic to fetch
+    const result = await fetch(
+      `http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
+
+    const resultData = await result.json()
+
+
+    dispatch({
+      type: FETCH_ARTICLES,
+      payload: resultData
+    })
+    
   }
 }
