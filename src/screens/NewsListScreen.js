@@ -22,7 +22,13 @@ const NewsAppScreen = props => {
       data={articles}
       keyExtractor={item => item.url}
       renderItem={({item}) => (
-        <Card navigation={props.navigation}/>
+        <Card 
+          navigation={props.navigation}
+          title={item.title}
+          image={item.urlToImage}
+          description={item.description}
+                    
+        />
         
       ) }
     
