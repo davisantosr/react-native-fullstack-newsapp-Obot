@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux'
 
 import Card from '../components/Card';
@@ -18,7 +18,15 @@ const NewsAppScreen = props => {
   console.log(articles)
 
   return (
-      <Card navigation={props.navigation}/>
+    <FlatList 
+      data={articles.articles}
+      keyExtractor={item => item.url}
+      renderItem={({item}) => (
+        <Card navigation={props.navigation}/>
+        
+      ) }
+    
+    />
       
   )
 }
