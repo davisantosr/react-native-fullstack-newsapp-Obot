@@ -13,16 +13,16 @@ const Card = props => {
           <Image 
             // source={require('../../assets/news-icon.png')}
             source={{
-              uri: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80'}}
+              uri: props.image}}
             style={styles.image}
             />
         </View>
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>Dummy Title</Text>
+          <Text style={styles.title}>{props.title}</Text>
           <MaterialIcons name='favorite' color='#72bcd4' size={24} />
         </View>
         <View style={styles.descriptionWrapper}>
-          <Text style={styles.description}>This is a Dummy Description</Text>
+          <Text style={styles.description}>{props.description}</Text>
         </View>
       </View>
     </TouchableOpacity>
