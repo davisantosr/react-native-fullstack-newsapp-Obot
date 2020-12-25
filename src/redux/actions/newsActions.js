@@ -1,5 +1,5 @@
 export const FETCH_ARTICLES = 'FETCH_ARTICLES';
-export const ADD_FAVORITES = 'ADD_FAVORITES';
+export const TOGGLE_FAVORITES = 'TOGGLE_FAVORITES';
 
 import {API_KEY} from "@env"
 
@@ -19,4 +19,12 @@ export const fetchArticles = () => {
     })
     
   }
+}
+
+export const toggleFavorite = url => {
+  return {
+    type: TOGGLE_FAVORITES,
+    payload: url
+  }
+
 }
