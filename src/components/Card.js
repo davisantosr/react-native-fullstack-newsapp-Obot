@@ -20,8 +20,7 @@ const Card = props => {
       props.navigation.navigate({
         routeName:'NewsDetail',
         params: {
-          title: props.title,
-          description: props.description
+          articleUrl: props.url
         }
       })
           

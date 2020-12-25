@@ -1,25 +1,28 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons'
+import { useSelector } from 'react-redux';
+import { MaterialIcons } from '@expo/vector-icons';
 
-const NewsDetailsScreen = () => {
+const NewsDetailsScreen = props => {
+
+  const articleUrl = props.navigation.getParam('articleUrl')
+  const article = useSelector(state => state.news.articles.find( article => article.url === articleUrl))
+
   return (
     <View style={styles.container}>
       <View style={styles.heading}>
-        <Text style={styles.title}></Text>
+        <Text style={styles.title}>article.title</Text>
       </View>
       <View>
-        <ImageBackground style={styles.image}>
+        <ImageBackground source={{uri: article.urlToImage}} style={styles.image}>
           <View style={styles.titleContainer}>
-            <Text style={styles.auth}></Text>
+            <Text style={styles.auth}>{article.author}</Text>
             <MaterialIcons />
           </View>
-          
         </ImageBackground>
-        
       </View>
       <View style={styles.description}>
-        <Text style={styles.descriptionText}> </Text>
+        <Text style={styles.descriptionText}>article.description</Text>
       </View>
   </View>
   )
