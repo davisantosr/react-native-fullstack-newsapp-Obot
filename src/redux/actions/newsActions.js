@@ -8,7 +8,7 @@ export const fetchArticles = () => {
 
   return async dispatch => {
     //logic to fetch
-    const result = await fetch(`http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${API_KEY}`) 
+    const result = await fetch(`http://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${API_KEY}`) 
 
     const resultData = await result.json()
 

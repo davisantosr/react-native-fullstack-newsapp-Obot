@@ -1,13 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { useSelector } from 'react-redux'
 
-const FavoriteScreen = () => {
+import Card from '../components/Card';
+
+const FavoriteScreen = props => {
+  
+  const favorites = useSelector(state => state.news.favorites)
+  
   return (
-    <View>
-      <Text>
-        Favorite Screen
-      </Text>
-  </View>
+    <FlatList
+      data={favorites}
+      keyExtractor={item => item.url}
+      renderItem={({item}) => (
+        <Card 
+          navigation={props.navigation}
+          title={item.title}
+          image={item.urlToImage}
+          description={item.description}
+          url={item.url}
+                    
+        />
+        
+      ) }
+    
+    />
   )
 }
 const styles = StyleSheet.create({
