@@ -23,13 +23,13 @@ const Card = props => {
           <Image 
             // source={require('../../assets/news-icon.png')}
             source={{
-              uri: props.image}}
+              uri: props.image ? props.image : ''}}
             style={styles.image}
             />
         </View>
         <View style={styles.titleWrapper}>
           <Text style={styles.title}>
-            {props.title.length > 22 ? props.title.slice(0, 22) + '...' 
+            {props.title && props.title.length > 22 ? props.title.slice(0, 22) + '...' 
             : props.title}
           </Text>
           <MaterialIcons 
@@ -45,7 +45,7 @@ const Card = props => {
         <View style={styles.descriptionWrapper}>
           <Text style={styles.description}>
             {
-              props.description.length > 100 ? props.description.slice(0, 100) + '...' 
+              props.description && props.description.length > 100 ? props.description.slice(0, 100) + '...' 
             : props.description
             }
           </Text>
