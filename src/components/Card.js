@@ -16,7 +16,16 @@ const Card = props => {
 
 
   return (
-    <TouchableOpacity onPress={() => props.navigation.navigate('NewsDetails')}>
+    <TouchableOpacity onPress={() => {
+      props.navigation.navigate({
+        routeName:'NewsDetail',
+        params: {
+          title: props.title,
+          description: props.description
+        }
+      })
+          
+    }}>
 
       <View style={styles.card}>
         <View style={styles.imageWrapper}>
