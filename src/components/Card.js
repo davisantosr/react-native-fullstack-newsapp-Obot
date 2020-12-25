@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
 
 import * as newsAction from '../redux/actions/newsActions'
 
@@ -11,6 +12,7 @@ const Card = props => {
 
 
   const dispatch = useDispatch()
+  const isFav = useSelector(state => state.news.favorites.some(article => article.url === props.url))
 
 
   return (
@@ -31,7 +33,7 @@ const Card = props => {
             : props.title}
           </Text>
           <MaterialIcons 
-            name='favorite-outline' 
+            name={isFav ? 'favorite' : 'favorite-border'}
             color='#72bcd4' 
             size={24}
             onPress={() => {
